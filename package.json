@@ -1,6 +1,7 @@
 {
   "name": "major-project",
   "version": "1.0.0",
+   "type": "module",
   "description": "Realtime Chat Application in progress....",
   "main": "server.js",
   "scripts": {
