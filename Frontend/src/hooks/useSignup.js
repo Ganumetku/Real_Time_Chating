@@ -12,7 +12,7 @@ const useSignup = () => {
 
 		setLoading(true);
 		try {
-			const res = await fetch("/api/auth/signup", {
+			const res = await fetch("http://localhost:5000/api/auth/signup", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({ fullName, username, email, password, confirmPassword, gender }),
@@ -30,6 +30,7 @@ const useSignup = () => {
 		} 
 		
 		catch (error) {
+			console.log("hii");
 			toast.error(error.message);
 		} finally {
 			setLoading(false);

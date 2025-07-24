@@ -27,7 +27,7 @@ const SearchInput = ({ onContactAdded }) => {
 
         // User is not already a contact, proceed with adding the contact
         
-            const response = await fetch("/api/users/add-contact", {
+            const response = await fetch("http://localhost:5000/api/users/add-contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const SearchInput = ({ onContactAdded }) => {
                 toast.success(data.message || "Contact added successfully!");
 
                 // Fetch updated list of conversations
-                const convResponse = await fetch("/api/users/conversations"); // Adjust endpoint if needed
+                const convResponse = await fetch("http://localhost:5000/api/users/conversations"); // Adjust endpoint if needed
                 const conversationsData = await convResponse.json();
 
                 if (convResponse.ok) {

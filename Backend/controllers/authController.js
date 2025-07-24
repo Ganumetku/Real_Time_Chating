@@ -12,8 +12,10 @@ export const signup = async (req, res) => {
         }
 
         const user = await User.findOne({ username: new RegExp('^' + username + '$', 'i') });
+       
 
         if (user) {
+            
             return res.status(400).json({ error: "Username already exists." });
         }
 
@@ -38,6 +40,7 @@ export const signup = async (req, res) => {
         });
 
         if (newUser) {
+            console.log(newUser);
             await newUser.save();
 
             // Create a contact list for the new user
@@ -45,6 +48,7 @@ export const signup = async (req, res) => {
             await newContactList.save();
 
             // Generate JWT token
+            console.log(newUser._id);
             generateTokenAndSetCookie(newUser._id, res);
 
             res.status(201).json({
