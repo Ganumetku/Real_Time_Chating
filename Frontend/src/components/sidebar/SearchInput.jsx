@@ -27,7 +27,7 @@ const SearchInput = ({ onContactAdded }) => {
 
         // User is not already a contact, proceed with adding the contact
         
-            const response = await fetch("http://localhost:5000/api/users/add-contact", {
+            const response = await fetch("https://chat-app-backend-lyart-nu.vercel.app/api/users/add-contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
