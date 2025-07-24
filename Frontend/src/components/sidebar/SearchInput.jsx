@@ -32,6 +32,7 @@ const SearchInput = ({ onContactAdded }) => {
                 headers: {
                     "Content-Type": "application/json",
                 },
+                 credentials: "include", 
                 body: JSON.stringify({ username: search }),
             });
 
