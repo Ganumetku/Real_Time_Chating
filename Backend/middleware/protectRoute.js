@@ -1,11 +1,16 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/user.model.js';
+import cookieParser from 'cookie-parser';
+import express from 'express';
+const app=express();
 
+app.use(cookieParser());
 const protectRoute= async(req,res,next) => {
     try {
-        const token= req.cookies.jwt
+        const token= req.cookies.token;
         console.log(token);
         console.log('hi');
+        console.log("clinked0");
 
         if(!token)
         {

@@ -3,6 +3,7 @@ import User from "../models/user.model.js";
 export const getUsersForSidebar = async (req, res) => {
     try {
         const loggedInUserId = req.user._id;
+        console.log('this');
 
         // Find the logged-in user and populate their contacts
         const loggedInUser = await User.findById(loggedInUserId).populate("contacts", "-password");

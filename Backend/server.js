@@ -12,10 +12,11 @@ import { app, server } from './socket/socket.js';
 dotenv.config();
 
 app.use(cors({
-    origin:"http://localhost:3000",
-    method:["GET","PUT","POST","PUT"],
-    credentials:true
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
 }));
+
 const __dirname = path.resolve();
 const PORT = process.env.PORT || 5000;
 
