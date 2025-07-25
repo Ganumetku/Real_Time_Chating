@@ -13,7 +13,7 @@ const useSignup = () => {
 		setLoading(true);
 		try {
 			// http://localhost:5000 
-			const res = await fetch("https://chat-app-backend-lyart-nu.vercel.app/api/auth/signup", {
+			const res = await fetch("https://chat-app-backend-seven-xi.vercel.app/api/auth/signup", {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				credentials: "include",
