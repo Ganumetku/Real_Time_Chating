@@ -24,14 +24,13 @@ const useSignup = () => {
 
 				body: JSON.stringify({ fullName, username, email, password, confirmPassword, gender }),
 			});
-			console.log("connected frontend message");
+			
 			const data = await res.json();
 
 			if (data.error) {
 				throw new Error(data.error);
 			}
-			console.log(data);
-			console.log("above");
+			
 			
 			localStorage.setItem("chat-user", JSON.stringify(data));
 			setAuthUser(data);
