@@ -11,7 +11,10 @@ const useGetMessages = () => {
 		const getMessages = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch(`${GET_MESSAGE}/${selectedConversation._id}`);
+			const res = await fetch(`${GET_MESSAGE}/${selectedConversation._id}`, {
+		credentials: "include", // 🔥 Must include this to send cookies
+		});
+
 				const data = await res.json();
 				if (data.error) throw new Error(data.error);
 				setMessages(data);

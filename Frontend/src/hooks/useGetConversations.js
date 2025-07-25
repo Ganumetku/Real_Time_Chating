@@ -11,7 +11,10 @@ const useGetConversations = () => {
             setLoading(true);
             try {
                 // Fetch contacts for the logged-in user
-                const res = await fetch(GET_CONVERSATION);
+             const res = await fetch(GET_CONVERSATION, {
+            credentials: "include", // 🔥 this sends the cookie!
+            });
+
                 const data = await res.json();
 
                 if (data.error) {

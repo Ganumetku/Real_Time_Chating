@@ -8,3 +8,4 @@ export const LOGOUT_URL =`${BASE_URL}/api/auth/logout`;
 export const SEARCH_URL =`${BASE_URL}/api/users/add-contact`;
 export const GET_CONVERSATION =`${BASE_URL}/api/users`;
 export const GET_MESSAGE =`${BASE_URL}/api/messages`;
+export const SEND_MESSAGE =`${BASE_URL}/api/messages/send`;
