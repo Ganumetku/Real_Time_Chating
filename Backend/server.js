@@ -13,7 +13,7 @@ dotenv.config();
 
 app.use(cors({
    //origin: "http://localhost:3000",
-    origin:"https://chat-app-backend-seven-xi.vercel.app",
+    origin:"https://chat-app-frontend-gules-chi.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
