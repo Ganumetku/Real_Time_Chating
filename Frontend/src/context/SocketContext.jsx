@@ -15,7 +15,7 @@ export const SocketContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("https://chat-app-backend-lake-one.vercel.app", {
+			const socket = io("https://chatify-f36x.onrender.com", {
 				query: {
 					userId: authUser._id,
 				},
