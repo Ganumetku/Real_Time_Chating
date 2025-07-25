@@ -3,6 +3,7 @@ import { IoSearchSharp } from "react-icons/io5";
 import toast from "react-hot-toast";
 import useConversation from "../../zustand/useConversation";
 import useGetConversations from "../../hooks/useGetConversations";
+import { SEARCH_URL } from "../../Url";
 
 const SearchInput = ({ onContactAdded }) => {
     const [search, setSearch] = useState("");
@@ -27,7 +28,7 @@ const SearchInput = ({ onContactAdded }) => {
 
         // User is not already a contact, proceed with adding the contact
         
-            const response = await fetch("https://chat-app-backend-seven-xi.vercel.app/api/users/add-contact", {
+            const response = await fetch(SEARCH_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
