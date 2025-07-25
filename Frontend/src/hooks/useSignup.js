@@ -12,6 +12,8 @@ const useSignup = () => {
 		const success = handleInputErrors({ fullName, username, email, password, confirmPassword, gender });
 		if (!success) return;
 
+		console.log("hellow borther");
+
 		setLoading(true);
 		try {
 			// http://localhost:5000 
