@@ -24,7 +24,7 @@ const useSignup = () => {
 
 				body: JSON.stringify({ fullName, username, email, password, confirmPassword, gender }),
 			});
-			console.log("connected frontend");
+			console.log("connected frontend message");
 			const data = await res.json();
 
 			if (data.error) {
