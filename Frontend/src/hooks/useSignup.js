@@ -1,6 +1,8 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
+import { SIGNUP_URL } from "../Url";
+
 
 const useSignup = () => {
 	const [loading, setLoading] = useState(false);
@@ -13,7 +15,7 @@ const useSignup = () => {
 		setLoading(true);
 		try {
 			// http://localhost:5000 
-			const res = await fetch("https://chat-app-backend-seven-xi.vercel.app/api/auth/signup", {
+			const res = await fetch(SIGNUP_URL, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				credentials: "include",
