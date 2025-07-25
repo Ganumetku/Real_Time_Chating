@@ -10,7 +10,7 @@ const useGetConversations = () => {
             setLoading(true);
             try {
                 // Fetch contacts for the logged-in user
-                const res = await fetch("/api/users");
+                const res = await fetch("https://chat-app-backend-lake-one.vercel.app/api/users");
                 const data = await res.json();
 
                 if (data.error) {
