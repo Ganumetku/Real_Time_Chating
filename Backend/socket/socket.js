@@ -10,6 +10,7 @@ const io = new Server(server, {
 		//origin: ["http://localhost:3000"],
 		origin:"https://chat-app-frontend-gules-chi.vercel.app",
 		methods: ["GET", "POST"],
+		credentials:true,
 	},
 });
 
