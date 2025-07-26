@@ -18,9 +18,13 @@ const useGetMessages = () => {
 				if (data.error) throw new Error(data.error);
 
 				// ✅ Only set messages if no messages are already loaded
+				// if (messages.length === 0) {
+				// 	setMessages(data);
+				// }
 				if (messages.length === 0) {
-					setMessages(data);
-				}
+	setMessages(() => data); // <- safer functional update
+}
+
 			} catch (error) {
 				toast.error(error.message);
 			} finally {
