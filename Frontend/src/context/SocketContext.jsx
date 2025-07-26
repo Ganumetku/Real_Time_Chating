@@ -16,10 +16,9 @@ export const SocketContextProvider = ({ children }) => {
 	useEffect(() => {
 		if (authUser) {
 			const socket = io("https://chatapp-backend-5m0n.onrender.com", {
-				query: {
-					userId: authUser._id,
-				},
-			});
+	transports: ["polling"], // prevent websocket
+	query: { userId: authUser._id },
+});
 
 			setSocket(socket);
 
