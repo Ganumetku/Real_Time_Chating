@@ -5,7 +5,7 @@ import { GET_MESSAGE } from "../Url";
 
 const useGetMessages = () => {
 	const [loading, setLoading] = useState(false);
-	const { messages, setMessages, selectedConversation } = useConversation();
+	const { setMessages, selectedConversation } = useConversation();
 
 	useEffect(() => {
 		const getMessages = async () => {
@@ -17,10 +17,7 @@ const useGetMessages = () => {
 				const data = await res.json();
 				if (data.error) throw new Error(data.error);
 
-				// ✅ Only set messages if no messages are already loaded
-				if (messages.length === 0) {
-					setMessages(data);
-				}
+				setMessages(data); // ✅ Always set full conversation messages
 			} catch (error) {
 				toast.error(error.message);
 			} finally {
@@ -31,9 +28,9 @@ const useGetMessages = () => {
 		if (selectedConversation?._id) {
 			getMessages();
 		}
-	}, [selectedConversation?._id]); // ✅ removed setMessages from deps
+	}, [selectedConversation?._id]); // ✅ no unnecessary deps
 
-	return { messages, loading };
+	return { loading };
 };
 
 export default useGetMessages;
