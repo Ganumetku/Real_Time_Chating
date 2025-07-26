@@ -11,20 +11,21 @@ const useSendMessage = () => {
 		setLoading(true);
 		try {
 			const res = await fetch(`${SEND_MESSAGE}/${selectedConversation._id}`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({ message }),
-			credentials: "include", // 🔥 This sends the token cookie!
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				credentials: "include",
+				body: JSON.stringify({ message }),
 			});
 
 			const data = await res.json();
 			if (data.error) throw new Error(data.error);
 
-			setMessages([...messages, data]);
+			// ✅ Use functional update to avoid undefined crash
+			setMessages((prevMessages) => [...(prevMessages || []), data]);
+			console.log("bhai");
 		} catch (error) {
-			console.log('this sendmesage.js');
 			toast.error(error.message);
 		} finally {
 			setLoading(false);
@@ -33,4 +34,5 @@ const useSendMessage = () => {
 
 	return { sendMessage, loading };
 };
+
 export default useSendMessage;

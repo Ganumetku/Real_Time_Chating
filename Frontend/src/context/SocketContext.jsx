@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useAuthContext } from "./AuthContext";
 import io from "socket.io-client";
+import { BASE_URL } from "../Url";
+
 
 const SocketContext = createContext();
 
@@ -12,10 +14,10 @@ export const SocketContextProvider = ({ children }) => {
 	const [socket, setSocket] = useState(null);
 	const [onlineUsers, setOnlineUsers] = useState([]);
 	const { authUser } = useAuthContext();
-
+	
 	useEffect(() => {
 		if (authUser) {
-			const socket = io("https://chatapp-backend-5m0n.onrender.com", {
+			const socket = io(BASE_URL, {
 	transports: ["polling"], // prevent websocket
 	query: { userId: authUser._id },
 });

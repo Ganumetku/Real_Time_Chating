@@ -11,20 +11,13 @@ const useGetMessages = () => {
 		const getMessages = async () => {
 			setLoading(true);
 			try {
-				const res = await fetch(`${GET_MESSAGE}/${selectedConversation._id}`, {
-					credentials: "include",
-				});
+			const res = await fetch(`${GET_MESSAGE}/${selectedConversation._id}`, {
+		credentials: "include", // 🔥 Must include this to send cookies
+		});
+
 				const data = await res.json();
 				if (data.error) throw new Error(data.error);
-
-				// ✅ Only set messages if no messages are already loaded
-				// if (messages.length === 0) {
-				// 	setMessages(data);
-				// }
-				if (messages.length === 0) {
-	setMessages(() => data); // <- safer functional update
-}
-
+				setMessages(data);
 			} catch (error) {
 				toast.error(error.message);
 			} finally {
@@ -32,12 +25,9 @@ const useGetMessages = () => {
 			}
 		};
 
-		if (selectedConversation?._id) {
-			getMessages();
-		}
-	}, [selectedConversation?._id]); // ✅ removed setMessages from deps
+		if (selectedConversation?._id) getMessages();
+	}, [selectedConversation?._id, setMessages]);
 
 	return { messages, loading };
 };
-
 export default useGetMessages;
