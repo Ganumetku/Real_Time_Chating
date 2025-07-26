@@ -36,15 +36,18 @@ const SearchInput = ({ onContactAdded }) => {
                  credentials: "include", 
                 body: JSON.stringify({ username: search }),
             });
-
+            console.log(response);
             const data = await response.json();
+            
 
             if (response.ok) {
+                console.log()
                 toast.success(data.message || "Contact added successfully!");
 
                 // Fetch updated list of conversations
-                const convResponse = await fetch("http://localhost:5000/api/users/conversations"); // Adjust endpoint if needed
+                const convResponse = await fetch(SEARCH_URL); // Adjust endpoint if needed
                 const conversationsData = await convResponse.json();
+                console.log(conversationsData);
 
                 if (convResponse.ok) {
                     // Find the newly added contact

@@ -13,10 +13,15 @@ const useLogout = () => {
 			const res = await fetch(LOGOUT_URL, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
+				credentials:"include",
 			});
 			const data = await res.json();
+			
 			if (data.error) {
 				throw new Error(data.error);
+			}
+			else{
+				toast.success(data.message);
 			}
 
 			localStorage.removeItem("chat-user");

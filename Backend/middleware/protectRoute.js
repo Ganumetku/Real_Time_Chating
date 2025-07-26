@@ -8,9 +8,7 @@ app.use(cookieParser());
 const protectRoute= async(req,res,next) => {
     try {
         const token= req.cookies.token;
-        console.log(token);
-        console.log('hi');
-        console.log("clinked0");
+       
 
         if(!token)
         {

@@ -18,7 +18,7 @@ const MessageContainer = ({ onBack }) => {
                     <div className='bg-slate-500 px-4 py-2 flex-shrink-0 flex items-center'>
                         {/* Back Button */}
                         <button 
-                            className='text-blue-500 p-2'
+                            className='text-gray-100 p-2'
                             onClick={onBack}
                         >
                             Go Back
@@ -26,7 +26,7 @@ const MessageContainer = ({ onBack }) => {
                         {/* Recipient's Name */}
                         <div className='ml-2'>
                             <span className='label-text'> Chatting with:</span>{" "}
-                            <span className='text-gray-900 font-bold'>{selectedConversation.fullName}</span>
+                            <span className='text-blue-200 font-bold'>{selectedConversation.fullName}</span>
                         </div>
                     </div>
 
