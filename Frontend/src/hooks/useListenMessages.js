@@ -10,16 +10,16 @@ const useListenMessages = () => {
 	const { messages, setMessages } = useConversation();
 
 	useEffect(() => {
-		socket?.on("newMessage", (newMessage) => {
-			newMessage.shouldShake = true;
-			const sound = new Audio(notificationSound);
-			sound.play();
-			setMessages((prevMessages) => [...prevMessages, newMessage]);
+	socket?.on("newMessage", (newMessage) => {
+		newMessage.shouldShake = true;
+		const sound = new Audio(notificationSound);
+		sound.play();
 
-		});
+		setMessages((prevMessages) => [...prevMessages, newMessage]); // ✅ Appending
+	});
 
-		return () => socket?.off("newMessage");
-	}, [socket, setMessages, messages]);
+	return () => socket?.off("newMessage");
+}, [socket]); // ✅ Removed messages & setMessages
 
 	
 };
