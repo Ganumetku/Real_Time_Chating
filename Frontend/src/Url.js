@@ -1,5 +1,5 @@
 // export const BASE_URL = "http://localhost:5000";
-export const BASE_URL="https://real-time-chating-gl9d.onrender.com";
+export const BASE_URL="https://apna-bolaych.onrender.com";
 
 export const LOGIN_URL = `${BASE_URL}/api/auth/login`;
 export const SIGNUP_URL = `${BASE_URL}/api/auth/signup`;
