@@ -14,7 +14,7 @@ dotenv.config();
 
 app.use(cors({
 //   origin: "http://localhost:3000",
-    origin:"https://real-time-chating-woad.vercel.app/",
+    origin:"https://real-time-chating-woad.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
